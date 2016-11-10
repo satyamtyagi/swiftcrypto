@@ -6,8 +6,6 @@
 //  Copyright © 2016 Satyam Tyagi. All rights reserved.
 //
 
-import Foundation
-import Security
 import LocalAuthentication
 
 private let kSecMessECCApplicationTag = "com.secmessecc.key"
