@@ -108,7 +108,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -276,7 +276,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = swiftcrypto/swiftcrypto.entitlements;
 				DEVELOPMENT_TEAM = KKHJSK3MLC;
 				INFOPLIST_FILE = swiftcrypto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -290,7 +289,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = swiftcrypto/swiftcrypto.entitlements;
 				DEVELOPMENT_TEAM = KKHJSK3MLC;
 				INFOPLIST_FILE = swiftcrypto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

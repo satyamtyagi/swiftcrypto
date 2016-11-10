@@ -14,25 +14,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var encryptedText: UITextView!
     @IBOutlet weak var decryptedText: UITextField!
     @IBOutlet weak var verificationResult: UITextField!
-    
+    var pubEncKey = ""
+    var pubSignKey = ""
     
     @IBAction func encryptAndSign(_ sender: UIButton) {
         //take entered text
-        //get the encryption public key
-        let pubKey = CryptoSingleton.sharedInstance.generateECCKeys()
         //encrypt with public key
         guard let clearText = enteredText.text else {
+            print("no clear text")
             return
         }
         let encryptedString =
             CryptoSingleton.sharedInstance.encryptECCPubKeySupplied(
                 message: clearText,
-                externalKeyB64String: pubKey)
-        
+                externalKeyB64String: pubEncKey)
+        print("encryptedString:", encryptedString)
         //take the encrypted output
         //sign with private key (Requires TouchId)
         let signString =
             CryptoSingleton.sharedInstance.signECCPrivKey(message: encryptedString)
+        print("signString", signString)
         //concat ":" separator and assign to encrypted text
         encryptedText.text = encryptedString + ":" + signString
     }
@@ -41,21 +42,20 @@ class ViewController: UIViewController {
     @IBAction func decryptAndVerify(_ sender: UIButton) {
         //take the encyrpted signed text
         guard let encryptText = encryptedText.text else {
+            print("no encryption text")
             return
         }
         //parse with ":" separator
         let encryptArray = encryptText.components(separatedBy: ":")
-        if encryptArray.count == 3 {
+        if encryptArray.count == 2 {
             let encryptString = encryptArray[0]
             let signString = encryptArray[1]
-            //get the signature public key
-            let signPubKey = CryptoSingleton.sharedInstance.generateECCSignKeys()
             //verify the signature
             //assign result to verify Result
             if CryptoSingleton.sharedInstance.verifySignECCPubKeySupplied(
                 message: encryptString,
                 signatueString: signString,
-                externalKeyB64String: signPubKey) {
+                externalKeyB64String: pubSignKey) {
                 verificationResult.text = "Success!"
             }
             else {
@@ -63,6 +63,12 @@ class ViewController: UIViewController {
             }
             //decrypt with private key (Require TouchId)
             CryptoSingleton.sharedInstance.decryptECCPrivKey(encryptedString: encryptString)
+        }
+        else {
+            print("failed to parse", encryptArray.count, encryptText)
+            for stringElem in encryptArray {
+                print(stringElem)
+            }
         }
     }
     
@@ -74,6 +80,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        pubEncKey = CryptoSingleton.sharedInstance.generateECCKeys()
+        pubSignKey = CryptoSingleton.sharedInstance.generateECCSignKeys()
+        
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "encryptionComplete"), object: nil, queue: nil) { _ in self.encryptionComplete()}
     }
 
