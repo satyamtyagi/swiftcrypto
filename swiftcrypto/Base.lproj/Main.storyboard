@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="swiftcrypto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,109 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaV-fl-S0b">
+                                <rect key="frame" x="16" y="28" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrI-oq-gGi">
+                                <rect key="frame" x="106" y="19" width="253" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-By-jKu">
+                                <rect key="frame" x="120" y="57" width="135" height="30"/>
+                                <state key="normal" title="Encrypt &amp; Sign Text"/>
+                                <connections>
+                                    <action selector="encryptAndSign:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d1y-iD-IXw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3c-6F-mJb">
+                                <rect key="frame" x="114" y="260" width="147" height="30"/>
+                                <state key="normal" title="Decrypt &amp; Verify Sign"/>
+                                <connections>
+                                    <action selector="decryptAndVerify:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3cY-UN-4Hj"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0TI-RB-CuG">
+                                <rect key="frame" x="16" y="124" width="343" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encrypted &amp; Signed Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpB-7K-hlQ">
+                                <rect key="frame" x="93" y="95" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decrypted Text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTg-qs-hxi">
+                                <rect key="frame" x="16" y="307" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPZ-GO-ItB">
+                                <rect key="frame" x="146" y="298" width="213" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8r8-mp-mno">
+                                <rect key="frame" x="167" y="336" width="192" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification Result:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6R-FS-oNv">
+                                <rect key="frame" x="16" y="345" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8r8-mp-mno" firstAttribute="leading" secondItem="A6R-FS-oNv" secondAttribute="trailing" constant="8" symbolic="YES" id="2xo-Cm-wEl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="A6R-FS-oNv" secondAttribute="bottom" constant="301" id="5ZV-Gd-m2G"/>
+                            <constraint firstItem="eTg-qs-hxi" firstAttribute="leading" secondItem="A6R-FS-oNv" secondAttribute="leading" id="66g-4w-tHT"/>
+                            <constraint firstItem="0TI-RB-CuG" firstAttribute="centerX" secondItem="n3c-6F-mJb" secondAttribute="centerX" id="B13-yW-fEK"/>
+                            <constraint firstItem="A6R-FS-oNv" firstAttribute="bottom" secondItem="8r8-mp-mno" secondAttribute="bottom" id="Ezw-8S-ucJ"/>
+                            <constraint firstItem="eTg-qs-hxi" firstAttribute="bottom" secondItem="fPZ-GO-ItB" secondAttribute="bottom" id="GbP-Wj-Gx7"/>
+                            <constraint firstItem="mrI-oq-gGi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Hjd-hh-x4C"/>
+                            <constraint firstItem="Chi-By-jKu" firstAttribute="top" secondItem="mrI-oq-gGi" secondAttribute="bottom" constant="8" symbolic="YES" id="HzG-d5-77T"/>
+                            <constraint firstItem="n3c-6F-mJb" firstAttribute="top" secondItem="0TI-RB-CuG" secondAttribute="bottom" constant="8" symbolic="YES" id="Ksn-hj-Tm8"/>
+                            <constraint firstItem="CpB-7K-hlQ" firstAttribute="centerX" secondItem="0TI-RB-CuG" secondAttribute="centerX" id="LOl-Tm-xsU"/>
+                            <constraint firstItem="CpB-7K-hlQ" firstAttribute="top" secondItem="Chi-By-jKu" secondAttribute="bottom" constant="8" symbolic="YES" id="PhV-rc-axc"/>
+                            <constraint firstItem="mrI-oq-gGi" firstAttribute="trailing" secondItem="0TI-RB-CuG" secondAttribute="trailing" id="RLs-JV-HYe"/>
+                            <constraint firstItem="0TI-RB-CuG" firstAttribute="trailing" secondItem="fPZ-GO-ItB" secondAttribute="trailing" id="Rus-q4-6hc"/>
+                            <constraint firstItem="fPZ-GO-ItB" firstAttribute="leading" secondItem="eTg-qs-hxi" secondAttribute="trailing" constant="8" symbolic="YES" id="Si8-Th-HCi"/>
+                            <constraint firstItem="oaV-fl-S0b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="VBO-nf-l5F"/>
+                            <constraint firstItem="oaV-fl-S0b" firstAttribute="leading" secondItem="0TI-RB-CuG" secondAttribute="leading" id="W3w-pv-Siy"/>
+                            <constraint firstItem="0TI-RB-CuG" firstAttribute="top" secondItem="CpB-7K-hlQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Zcd-WW-MCy"/>
+                            <constraint firstItem="fPZ-GO-ItB" firstAttribute="top" secondItem="n3c-6F-mJb" secondAttribute="bottom" constant="8" symbolic="YES" id="cZd-Sk-BKT"/>
+                            <constraint firstItem="oaV-fl-S0b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dAX-8M-FVH"/>
+                            <constraint firstItem="8r8-mp-mno" firstAttribute="top" secondItem="fPZ-GO-ItB" secondAttribute="bottom" constant="8" symbolic="YES" id="ggD-7T-qyv"/>
+                            <constraint firstItem="oaV-fl-S0b" firstAttribute="bottom" secondItem="mrI-oq-gGi" secondAttribute="bottom" id="o5P-Qu-Zg3"/>
+                            <constraint firstItem="0TI-RB-CuG" firstAttribute="leading" secondItem="eTg-qs-hxi" secondAttribute="leading" id="py1-af-MMB"/>
+                            <constraint firstItem="fPZ-GO-ItB" firstAttribute="trailing" secondItem="8r8-mp-mno" secondAttribute="trailing" id="u1Y-iV-FPW"/>
+                            <constraint firstItem="Chi-By-jKu" firstAttribute="centerX" secondItem="CpB-7K-hlQ" secondAttribute="centerX" id="uwM-L8-4PV"/>
+                            <constraint firstItem="mrI-oq-gGi" firstAttribute="leading" secondItem="oaV-fl-S0b" secondAttribute="trailing" constant="8" symbolic="YES" id="zhv-WA-7Tg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="decryptedText" destination="fPZ-GO-ItB" id="6A7-NS-q3w"/>
+                        <outlet property="encryptedText" destination="0TI-RB-CuG" id="eGQ-1H-pD4"/>
+                        <outlet property="enteredText" destination="mrI-oq-gGi" id="9BU-pI-Qoy"/>
+                        <outlet property="verificationResult" destination="8r8-mp-mno" id="m8G-2O-Jkc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

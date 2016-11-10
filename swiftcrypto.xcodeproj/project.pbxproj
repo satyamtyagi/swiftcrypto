@@ -13,6 +13,7 @@
 		AEE25CCE1DD4198C0058A4A7 /* swiftcrypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEE25CCC1DD4198C0058A4A7 /* swiftcrypto.xcdatamodeld */; };
 		AEE25CD01DD4198C0058A4A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE25CCF1DD4198C0058A4A7 /* Assets.xcassets */; };
 		AEE25CD31DD4198C0058A4A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE25CD11DD4198C0058A4A7 /* LaunchScreen.storyboard */; };
+		AEE25CDB1DD41A150058A4A7 /* CryptoSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25CDA1DD41A150058A4A7 /* CryptoSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		AEE25CCF1DD4198C0058A4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEE25CD21DD4198C0058A4A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEE25CD41DD4198C0058A4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE25CDA1DD41A150058A4A7 /* CryptoSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoSingleton.swift; sourceTree = "<group>"; };
+		AEE25CDC1DD41B430058A4A7 /* swiftcrypto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = swiftcrypto.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,8 @@
 		AEE25CC41DD4198C0058A4A7 /* swiftcrypto */ = {
 			isa = PBXGroup;
 			children = (
+				AEE25CDC1DD41B430058A4A7 /* swiftcrypto.entitlements */,
+				AEE25CDA1DD41A150058A4A7 /* CryptoSingleton.swift */,
 				AEE25CC51DD4198C0058A4A7 /* AppDelegate.swift */,
 				AEE25CC71DD4198C0058A4A7 /* ViewController.swift */,
 				AEE25CC91DD4198C0058A4A7 /* Main.storyboard */,
@@ -101,6 +106,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = KKHJSK3MLC;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -140,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEE25CDB1DD41A150058A4A7 /* CryptoSingleton.swift in Sources */,
 				AEE25CC81DD4198C0058A4A7 /* ViewController.swift in Sources */,
 				AEE25CC61DD4198C0058A4A7 /* AppDelegate.swift in Sources */,
 				AEE25CCE1DD4198C0058A4A7 /* swiftcrypto.xcdatamodeld in Sources */,
