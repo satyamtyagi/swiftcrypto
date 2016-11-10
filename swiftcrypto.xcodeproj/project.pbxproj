@@ -26,7 +26,6 @@
 		AEE25CD21DD4198C0058A4A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEE25CD41DD4198C0058A4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE25CDA1DD41A150058A4A7 /* CryptoSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoSingleton.swift; sourceTree = "<group>"; };
-		AEE25CDC1DD41B430058A4A7 /* swiftcrypto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = swiftcrypto.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +58,6 @@
 		AEE25CC41DD4198C0058A4A7 /* swiftcrypto */ = {
 			isa = PBXGroup;
 			children = (
-				AEE25CDC1DD41B430058A4A7 /* swiftcrypto.entitlements */,
 				AEE25CDA1DD41A150058A4A7 /* CryptoSingleton.swift */,
 				AEE25CC51DD4198C0058A4A7 /* AppDelegate.swift */,
 				AEE25CC71DD4198C0058A4A7 /* ViewController.swift */,
@@ -317,6 +315,7 @@
 				AEE25CD91DD4198C0058A4A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
